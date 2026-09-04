@@ -42,6 +42,7 @@ export const Route = createFileRoute("/")({
 });
 
 type IconType = ComponentType<{ size?: number; strokeWidth?: number; className?: string }>;
+type Accent = "primary" | "secondary" | "accent-green" | "accent-violet" | "accent-amber" | "accent-cyan";
 
 const navItems = [
   ["Home", "home"],
@@ -63,7 +64,16 @@ const skillGroups: { title: string; icon: IconType; accent: string; items: strin
   { title: "Core Strengths", icon: Sparkles, accent: "text-primary", items: ["Analytical Thinking", "Problem Solving", "Communication"] },
 ];
 
-const resumeProjects = [
+const projectAccentClasses: Record<Accent, { text: string; bg: string; border: string; soft: string }> = {
+  primary: { text: "text-primary", bg: "bg-primary", border: "border-primary/25", soft: "bg-primary/10" },
+  secondary: { text: "text-secondary", bg: "bg-secondary", border: "border-secondary/25", soft: "bg-secondary/10" },
+  "accent-green": { text: "text-accent-green", bg: "bg-accent-green", border: "border-accent-green/25", soft: "bg-accent-green/10" },
+  "accent-violet": { text: "text-accent-violet", bg: "bg-accent-violet", border: "border-accent-violet/25", soft: "bg-accent-violet/10" },
+  "accent-amber": { text: "text-accent-amber", bg: "bg-accent-amber", border: "border-accent-amber/25", soft: "bg-accent-amber/10" },
+  "accent-cyan": { text: "text-accent-cyan", bg: "bg-accent-cyan", border: "border-accent-cyan/25", soft: "bg-accent-cyan/10" },
+};
+
+const resumeProjects: { number: string; title: string; tech: string[]; icon: IconType; accent: Accent; description: string; details: string[]; visual: string }[] = [
   {
     number: "01",
     title: "Diabetes Prediction Using Machine Learning",
@@ -89,7 +99,7 @@ const resumeProjects = [
     title: "Retail Sales Dashboard",
     tech: ["Microsoft Excel"],
     icon: FileSpreadsheet,
-    accent: "green",
+    accent: "accent-green",
     description: "A Retail Sales Analytics Dashboard built to monitor performance from cleaned and transformed raw sales data.",
     details: ["Pivot Tables and Pivot Charts", "Slicers and Conditional Formatting", "Monthly trends and city-wise performance", "Top-selling products", "Revenue distribution and performance monitoring"],
     visual: "sheets",
@@ -99,20 +109,20 @@ const resumeProjects = [
     title: "Power BI Sales Analytics Dashboard",
     tech: ["Power BI", "Power Query"],
     icon: BarChart3,
-    accent: "violet",
+    accent: "accent-violet",
     description: "Interactive Amazon and Adidas sales dashboards with KPI cards, visual analysis, Power Query cleaning, and DAX.",
     details: ["Total Sales, Profit, Quantity, Units Sold", "Bar, line, donut, funnel, and gauge charts", "Slicers for Category, Region, Gender, Year", "Regional, category, quarterly, and monthly analysis"],
     visual: "dashboard",
   },
 ];
 
-const additionalProjects = [
+const additionalProjects: { number: string; title: string; tech: string[]; icon: IconType; accent: Accent; description: string; details: string[]; visual: string }[] = [
   {
     number: "05",
     title: "COVID-19 Data Analysis",
     tech: ["Python", "pandas", "matplotlib", "seaborn", "Jupyter Notebook"],
     icon: BarChart3,
-    accent: "amber",
+    accent: "accent-amber",
     description: "A data analysis project exploring global COVID-19 trends using the Our World in Data dataset.",
     details: ["Cleans and processes case, death, and vaccination data", "Filters out non-country aggregate entries", "Visualizes individual-country case trends", "Compares total cases across countries", "Analyzes vaccination rollout progress globally"],
     visual: "covid",
@@ -122,7 +132,7 @@ const additionalProjects = [
     title: "Gesture Control Presenter",
     tech: ["Python", "OpenCV", "MediaPipe", "PyAutoGUI"],
     icon: Hand,
-    accent: "cyan",
+    accent: "accent-cyan",
     description: "A computer vision and AI project that controls Google Slides presentations using hand gestures through a laptop camera.",
     details: ["Real-time hand tracking from a webcam", "Open Palm → Next Slide", "Three Fingers → Previous Slide", "Two Fingers → Start Slideshow", "Fist → Exit Slideshow"],
     visual: "gesture",
@@ -180,7 +190,7 @@ function Index() {
               <p className="mt-7 max-w-2xl text-lg leading-relaxed text-muted-foreground sm:text-xl">Data Analyst <span className="text-primary">|</span> Python <span className="text-primary">|</span> SQL <span className="text-primary">|</span> Power BI <span className="text-primary">|</span> Excel <span className="text-primary">|</span> AI &amp; DS</p>
               <p className="mt-5 max-w-xl text-base leading-7 text-muted-foreground">Turning data into insights, dashboards, and intelligent solutions.</p>
               <div className="mt-9 flex flex-wrap gap-3">
-                <a href="#projects" className="inline-flex items-center gap-2 rounded-xl bg-primary px-5 py-3.5 text-sm font-bold text-primary-foreground shadow-[0_14px_35px_var(--primary-shadow)] transition-transform hover:-translate-y-0.5">View My Projects <ArrowUpRight size={16} /></a>
+                <a href="#projects" className="inline-flex items-center gap-2 rounded-xl bg-primary px-5 py-3.5 text-sm font-bold text-primary-foreground shadow-[var(--shadow-glow)] transition-transform hover:-translate-y-0.5">View My Projects <ArrowUpRight size={16} /></a>
                 <a href={resumeAsset.url} download="Galla-Mahendra-Resume.pdf" className="inline-flex items-center gap-2 rounded-xl border border-border bg-card/70 px-5 py-3.5 text-sm font-bold text-foreground transition-colors hover:bg-accent"><Download size={16} /> Download Resume</a>
                 <a href="#contact" className="inline-flex items-center gap-2 rounded-xl border border-border px-5 py-3.5 text-sm font-bold text-muted-foreground transition-colors hover:border-primary/40 hover:text-primary"><MessageCircle size={16} /> Contact Me</a>
               </div>
@@ -225,9 +235,9 @@ function Index() {
         </section>
 
         <section id="experience" className="section-rule bg-background py-24 sm:py-32"><div className="mx-auto max-w-5xl px-5 sm:px-8"><SectionIntro eyebrow="03 / EXPERIENCE" title="Learning through applied work" icon={BriefcaseBusiness} /><div className="relative mt-14 space-y-10 pl-7 before:absolute before:bottom-4 before:left-[7px] before:top-3 before:w-px before:bg-linear-to-b before:from-primary before:to-secondary">{[
-          ["Data Analytics Intern", "Besant Technologies", "6-month offline Data Analytics internship", ["SQL, Python, Advanced Excel, Power BI, and machine learning fundamentals", "Data extraction, cleaning, transformation, validation, and analysis for actionable business insights", "Interactive dashboards and reports, SQL analysis, Python preprocessing, and basic machine learning tasks"], "primary"],
-          ["Python Programming Intern", "Vault of Codes (AICTE)", "Python programming internship", ["Foundational programming", "Problem-solving skills"], "secondary"],
-        ].map(([role, company, label, bullets, color]) => <article key={role} className="relative rounded-2xl border border-border bg-card/35 p-6 sm:p-8"><span className={`absolute -left-[33px] top-8 grid size-3.5 place-items-center rounded-full bg-${color} ring-8 ring-background`} /><div className="flex flex-col justify-between gap-3 sm:flex-row sm:items-start"><div><p className={`font-mono text-[10px] uppercase tracking-[0.18em] text-${color}`}>{label}</p><h3 className="mt-3 text-2xl font-bold text-foreground">{role}</h3><p className="mt-1 font-semibold text-muted-foreground">{company}</p></div><span className="rounded-full border border-border bg-background/45 px-3 py-1.5 text-xs text-muted-foreground">Internship</span></div><ul className="mt-7 grid gap-3 text-sm leading-6 text-muted-foreground">{(bullets as string[]).map((bullet) => <li key={bullet} className="flex gap-3"><Check size={16} className={`mt-1 shrink-0 text-${color}`} />{bullet}</li>)}</ul></article>)}</div></div></section>
+          {role: "Data Analytics Intern", company: "Besant Technologies", label: "6-month offline Data Analytics internship", bullets: ["SQL, Python, Advanced Excel, Power BI, and machine learning fundamentals", "Data extraction, cleaning, transformation, validation, and analysis for actionable business insights", "Interactive dashboards and reports, SQL analysis, Python preprocessing, and basic machine learning tasks"], color: "primary" as Accent},
+          {role: "Python Programming Intern", company: "Vault of Codes (AICTE)", label: "Python programming internship", bullets: ["Foundational programming", "Problem-solving skills"], color: "secondary" as Accent},
+        ].map(({ role, company, label, bullets, color }) => <article key={role} className="relative rounded-2xl border border-border bg-card/35 p-6 sm:p-8"><span className={`absolute -left-[33px] top-8 grid size-3.5 place-items-center rounded-full ${projectAccentClasses[color].bg} ring-8 ring-background`} /><div className="flex flex-col justify-between gap-3 sm:flex-row sm:items-start"><div><p className={`font-mono text-[10px] uppercase tracking-[0.18em] ${projectAccentClasses[color].text}`}>{label}</p><h3 className="mt-3 text-2xl font-bold text-foreground">{role}</h3><p className="mt-1 font-semibold text-muted-foreground">{company}</p></div><span className="rounded-full border border-border bg-background/45 px-3 py-1.5 text-xs text-muted-foreground">Internship</span></div><ul className="mt-7 grid gap-3 text-sm leading-6 text-muted-foreground">{bullets.map((bullet) => <li key={bullet} className="flex gap-3"><Check size={16} className={`mt-1 shrink-0 ${projectAccentClasses[color].text}`} />{bullet}</li>)}</ul></article>)}</div></div></section>
 
         <section id="projects" className="section-rule bg-surface-deep py-24 sm:py-32"><div className="mx-auto max-w-7xl px-5 sm:px-8"><SectionIntro eyebrow="04 / SELECTED WORK" title="Projects built for clarity" icon={BarChart3} /><p className="mt-5 max-w-2xl text-muted-foreground">From healthcare risk assessment to sales intelligence, each project follows the path from structured data to a clearer decision surface.</p><div className="mt-14 grid gap-5 lg:grid-cols-2">{[...resumeProjects, ...additionalProjects].map((project) => <ProjectCard key={project.title} project={project} />)}</div></div></section>
 
@@ -251,12 +261,14 @@ function SectionIntro({ eyebrow, title, icon: Icon }: { eyebrow: string; title: 
 
 function ProjectCard({ project }: { project: (typeof resumeProjects)[number] | (typeof additionalProjects)[number] }) {
   const Icon = project.icon;
-  return <article className="group relative overflow-hidden rounded-3xl border border-border bg-card/35 p-6 transition-all duration-300 hover:-translate-y-1 hover:border-primary/40 hover:bg-card/70 sm:p-8"><div className="flex items-start justify-between gap-4"><div className={`grid size-11 place-items-center rounded-xl bg-${project.accent}/12 text-${project.accent}`}><Icon size={20} /></div><span className="font-mono text-xs text-muted-foreground">{project.number}</span></div><div className="mt-6 flex flex-wrap gap-2">{project.tech.map((tag) => <span key={tag} className={`rounded-full border border-${project.accent}/25 bg-${project.accent}/8 px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider text-${project.accent}`}>{tag}</span>)}</div><h3 className="mt-5 max-w-lg text-2xl font-bold leading-tight text-foreground">{project.title}</h3><p className="mt-4 max-w-xl text-sm leading-7 text-muted-foreground">{project.description}</p><ul className="mt-6 grid gap-2.5 text-sm leading-6 text-muted-foreground">{project.details.map((detail) => <li key={detail} className="flex gap-2.5"><span className={`mt-2 size-1.5 shrink-0 rounded-full bg-${project.accent}`} />{detail}</li>)}</ul><ProjectVisual type={project.visual} accent={project.accent} /></article>;
+  const classes = projectAccentClasses[project.accent];
+  return <article className="group relative overflow-hidden rounded-3xl border border-border bg-card/35 p-6 transition-all duration-300 hover:-translate-y-1 hover:border-primary/40 hover:bg-card/70 sm:p-8"><div className="flex items-start justify-between gap-4"><div className={`grid size-11 place-items-center rounded-xl ${classes.soft} ${classes.text}`}><Icon size={20} /></div><span className="font-mono text-xs text-muted-foreground">{project.number}</span></div><div className="mt-6 flex flex-wrap gap-2">{project.tech.map((tag) => <span key={tag} className={`rounded-full border ${classes.border} ${classes.soft} px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider ${classes.text}`}>{tag}</span>)}</div><h3 className="mt-5 max-w-lg text-2xl font-bold leading-tight text-foreground">{project.title}</h3><p className="mt-4 max-w-xl text-sm leading-7 text-muted-foreground">{project.description}</p><ul className="mt-6 grid gap-2.5 text-sm leading-6 text-muted-foreground">{project.details.map((detail) => <li key={detail} className="flex gap-2.5"><span className={`mt-2 size-1.5 shrink-0 rounded-full ${classes.bg}`} />{detail}</li>)}</ul><ProjectVisual type={project.visual} accent={project.accent} /></article>;
 }
 
-function ProjectVisual({ type, accent }: { type: string; accent: string }) {
+function ProjectVisual({ type, accent }: { type: string; accent: Accent }) {
+  const classes = projectAccentClasses[accent];
   if (type === "risk") return <div className="relative mt-8 h-32 overflow-hidden rounded-2xl border border-border bg-background/55 p-4"><div className="flex h-full items-center justify-center gap-6"><div className="relative grid size-20 place-items-center rounded-full border-4 border-primary/25"><div className="absolute inset-1 rounded-full border-4 border-primary border-r-transparent border-b-transparent rotate-[-35deg]" /><span className="font-mono text-lg font-bold text-primary">ML</span></div><div className="space-y-2"><p className="font-mono text-[10px] uppercase tracking-widest text-muted-foreground">Risk categories</p><div className="flex gap-1.5"><span className="h-2 w-10 rounded-full bg-accent-green" /><span className="h-2 w-14 rounded-full bg-accent-amber" /><span className="h-2 w-8 rounded-full bg-destructive" /></div><p className="text-xs text-muted-foreground">low · borderline · high</p></div></div></div>;
-  if (type === "bars") return <div className="mt-8 flex h-32 items-end gap-2 rounded-2xl border border-border bg-background/55 p-5">{[34, 58, 44, 79, 65, 92, 72, 52, 84, 68].map((height, index) => <span key={index} className={`w-full rounded-t-sm bg-${accent} opacity-${index % 3 === 0 ? "45" : "75"}`} style={{ height: `${height}%` }} />)}</div>;
+  if (type === "bars") return <div className="mt-8 flex h-32 items-end gap-2 rounded-2xl border border-border bg-background/55 p-5">{[34, 58, 44, 79, 65, 92, 72, 52, 84, 68].map((height, index) => <span key={index} className={`w-full rounded-t-sm ${classes.bg} ${index % 3 === 0 ? "opacity-50" : "opacity-75"}`} style={{ height: `${height}%` }} />)}</div>;
   if (type === "sheets") return <div className="mt-8 overflow-hidden rounded-2xl border border-border bg-background/55 p-4"><div className="grid grid-cols-7 gap-1">{Array.from({ length: 42 }, (_, index) => <span key={index} className={`h-3 rounded-sm ${index % 7 === 2 ? `bg-${accent}/75` : index % 5 === 0 ? "bg-primary/30" : "bg-muted/40"}`} />)}</div><div className="mt-4 flex items-center justify-between font-mono text-[10px] uppercase tracking-widest text-muted-foreground"><span>Pivot view</span><span>Monthly trends</span></div></div>;
   if (type === "gesture") return <div className="mt-8 flex h-32 items-center justify-center gap-5 rounded-2xl border border-border bg-background/55 p-5"><div className="grid size-16 place-items-center rounded-2xl border border-accent-cyan/30 bg-accent-cyan/10 text-accent-cyan"><Hand size={30} /></div><div className="space-y-2"><div className="flex items-center gap-2 text-xs text-muted-foreground"><MousePointer2 size={14} className="text-accent-cyan" /> Webcam → gesture</div><div className="flex gap-1"><span className="h-1.5 w-8 rounded-full bg-accent-cyan" /><span className="h-1.5 w-12 rounded-full bg-accent-cyan/60" /><span className="h-1.5 w-6 rounded-full bg-accent-cyan/30" /></div></div></div>;
   if (type === "covid") return <div className="mt-8 rounded-2xl border border-border bg-background/55 p-4"><div className="flex h-24 items-end gap-1">{[24, 35, 31, 47, 42, 70, 52, 82, 64, 92, 58, 76, 48, 62].map((height, index) => <span key={index} className={`w-full rounded-t-sm ${index % 3 === 0 ? "bg-accent-amber/40" : "bg-accent-amber/75"}`} style={{ height: `${height}%` }} />)}</div><p className="mt-3 font-mono text-[10px] uppercase tracking-widest text-muted-foreground">Global trend exploration</p></div>;
