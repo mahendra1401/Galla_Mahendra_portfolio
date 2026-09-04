@@ -1,0 +1,5 @@
+- [ ] Build premium responsive Galla Mahendra portfolio from resume source of truth
+- [ ] Add supplied portrait and original resume download
+- [ ] Add COVID-19 Data Analysis and gesture-control projects from uploaded materials
+- [ ] Include Python explicitly in Programming skills
+- [ ] Validate desktop/mobile preview, interactions, and build diagnostics
