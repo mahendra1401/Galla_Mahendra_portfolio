@@ -199,7 +199,7 @@ function Index() {
               <div className="mt-10 flex flex-wrap gap-x-6 gap-y-3 text-sm text-muted-foreground">
                 <a href="tel:+916302777658" className="inline-flex items-center gap-2 hover:text-primary"><span className="text-primary">+91</span> 6302777658</a>
                 <a href="mailto:mahendramahe689@gmail.com" className="inline-flex items-center gap-2 hover:text-primary"><Mail size={15} className="text-primary" /> mahendramahe689@gmail.com</a>
-                <span className="inline-flex items-center gap-2"><Linkedin size={15} className="text-primary" /> LinkedIn</span>
+                <a href={linkedInUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 hover:text-primary"><Linkedin size={15} className="text-primary" /> LinkedIn</a>
               </div>
             </div>
 
