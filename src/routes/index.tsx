@@ -208,7 +208,7 @@ function Index() {
               <div className="relative transition-transform duration-300" style={{ transform: `perspective(1000px) rotateX(${tilt.x * -5}deg) rotateY(${tilt.y * 5}deg)` }}>
                 <div className="glass relative rounded-[2rem] p-3 ring-1 ring-foreground/10">
                   <div className="relative aspect-[4/5] overflow-hidden rounded-[1.5rem] bg-card">
-                    <img src={portraitAsset.url} alt="Galla Mahendra wearing a black shirt" className="h-full w-full object-cover object-center" />
+                    <img src={portraitAsset.url} alt="Galla Mahendra professional portrait" className="h-full w-full object-cover object-center" />
                     <div className="absolute inset-x-0 bottom-0 bg-linear-to-t from-background/90 via-background/15 to-transparent p-5 pt-24">
                       <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-primary">Data / AI / DS</p>
                       <p className="mt-1 text-sm font-semibold text-foreground">Galla Mahendra</p>
