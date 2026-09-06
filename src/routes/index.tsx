@@ -189,8 +189,7 @@ function Index() {
                 <span className="size-1.5 animate-pulse rounded-full bg-primary" /> Computer Science (AI &amp; DS)
               </div>
               <h1 className="max-w-4xl text-balance text-5xl font-extrabold leading-[0.92] tracking-[-0.055em] text-foreground sm:text-7xl lg:text-8xl">GALLA<br /><span className="bg-linear-to-r from-primary via-accent-cyan to-secondary bg-clip-text text-transparent">MAHENDRA</span></h1>
-              <p className="mt-5 max-w-2xl text-2xl font-semibold tracking-tight text-secondary sm:text-3xl">Machine Learning</p>
-              <p className="mt-5 max-w-2xl text-lg leading-relaxed text-muted-foreground sm:text-xl">Data Analyst <span className="text-primary">|</span> Python <span className="text-primary">|</span> SQL <span className="text-primary">|</span> Power BI <span className="text-primary">|</span> Excel <span className="text-primary">|</span> AI &amp; DS</p>
+              <p className="mt-7 max-w-2xl text-lg leading-relaxed text-muted-foreground sm:text-xl">Data Analyst <span className="text-primary">|</span> Python <span className="text-primary">|</span> Machine Learning <span className="text-primary">|</span> SQL <span className="text-primary">|</span> Power BI <span className="text-primary">|</span> Excel <span className="text-primary">|</span> AI &amp; DS</p>
               <p className="mt-5 max-w-xl text-base leading-7 text-muted-foreground">Turning data into insights, dashboards, and intelligent solutions.</p>
               <div className="mt-9 flex flex-wrap gap-3">
                 <a href="#projects" className="inline-flex items-center gap-2 rounded-xl bg-primary px-5 py-3.5 text-sm font-bold text-primary-foreground shadow-[var(--shadow-glow)] transition-transform hover:-translate-y-0.5">View My Projects <ArrowUpRight size={16} /></a>
