@@ -1,5 +1,7 @@
-- [ ] Build premium responsive Galla Mahendra portfolio from resume source of truth
-- [ ] Add supplied portrait and original resume download
-- [ ] Add COVID-19 Data Analysis and gesture-control projects from uploaded materials
-- [ ] Include Python explicitly in Programming skills
-- [ ] Validate desktop/mobile preview, interactions, and build diagnostics
+- [x] Build premium responsive Galla Mahendra portfolio from resume source of truth
+- [x] Add supplied portrait and original resume download
+- [x] Add COVID-19 Data Analysis and gesture-control projects from uploaded materials
+- [x] Include Python explicitly in Programming skills
+- [x] Replace hero portrait with PICC.jpeg
+- [x] Make LinkedIn link clickable with provided URL
+- [x] Validate desktop/mobile preview, interactions, and build diagnostics

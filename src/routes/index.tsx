@@ -27,6 +27,8 @@ import {
 import portraitAsset from "@/assets/mahendra-portrait.jpeg.asset.json";
 import resumeAsset from "@/assets/galla-mahendra-resume.pdf.asset.json";
 
+const linkedInUrl = "https://www.linkedin.com/in/galla-mahendra-240997298/?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3B2B1eKt11Sg%2BlkOSzjr6fcw%3D%3D";
+
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
@@ -197,7 +199,7 @@ function Index() {
               <div className="mt-10 flex flex-wrap gap-x-6 gap-y-3 text-sm text-muted-foreground">
                 <a href="tel:+916302777658" className="inline-flex items-center gap-2 hover:text-primary"><span className="text-primary">+91</span> 6302777658</a>
                 <a href="mailto:mahendramahe689@gmail.com" className="inline-flex items-center gap-2 hover:text-primary"><Mail size={15} className="text-primary" /> mahendramahe689@gmail.com</a>
-                <span className="inline-flex items-center gap-2"><Linkedin size={15} className="text-primary" /> LinkedIn</span>
+                <a href={linkedInUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 hover:text-primary"><Linkedin size={15} className="text-primary" /> LinkedIn</a>
               </div>
             </div>
 
@@ -206,7 +208,7 @@ function Index() {
               <div className="relative transition-transform duration-300" style={{ transform: `perspective(1000px) rotateX(${tilt.x * -5}deg) rotateY(${tilt.y * 5}deg)` }}>
                 <div className="glass relative rounded-[2rem] p-3 ring-1 ring-foreground/10">
                   <div className="relative aspect-[4/5] overflow-hidden rounded-[1.5rem] bg-card">
-                    <img src={portraitAsset.url} alt="Galla Mahendra wearing a black shirt" className="h-full w-full object-cover object-center" />
+                    <img src={portraitAsset.url} alt="Galla Mahendra professional portrait" className="h-full w-full object-cover object-center" />
                     <div className="absolute inset-x-0 bottom-0 bg-linear-to-t from-background/90 via-background/15 to-transparent p-5 pt-24">
                       <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-primary">Data / AI / DS</p>
                       <p className="mt-1 text-sm font-semibold text-foreground">Galla Mahendra</p>
@@ -247,7 +249,7 @@ function Index() {
 
         <AnalyticsMindset />
 
-        <section id="contact" className="section-rule bg-background py-24 sm:py-32"><div className="mx-auto max-w-7xl px-5 sm:px-8"><div className="glass overflow-hidden rounded-[2rem] p-7 sm:p-12 lg:p-16"><div className="grid gap-12 lg:grid-cols-[1fr_auto] lg:items-end"><div><p className="font-mono text-xs uppercase tracking-[0.2em] text-primary">07 / CONTACT</p><h2 className="mt-5 max-w-2xl text-4xl font-extrabold tracking-tight text-foreground sm:text-6xl">Let&apos;s turn data into meaningful insights.</h2><p className="mt-6 max-w-xl text-lg leading-8 text-muted-foreground">Reach out to Galla Mahendra for a conversation about data, dashboards, and intelligent solutions.</p></div><a href="mailto:mahendramahe689@gmail.com" className="inline-flex items-center justify-center gap-2 rounded-xl bg-primary px-6 py-4 text-sm font-bold text-primary-foreground transition-transform hover:-translate-y-0.5">Email Me <ArrowUpRight size={17} /></a></div><div className="mt-12 grid gap-4 border-t border-border pt-8 sm:grid-cols-3"><a href="mailto:mahendramahe689@gmail.com" className="group"><p className="font-mono text-[10px] uppercase tracking-widest text-muted-foreground">Email</p><p className="mt-2 break-all text-sm font-semibold text-foreground group-hover:text-primary">mahendramahe689@gmail.com</p></a><a href="tel:+916302777658" className="group"><p className="font-mono text-[10px] uppercase tracking-widest text-muted-foreground">Phone</p><p className="mt-2 text-sm font-semibold text-foreground group-hover:text-primary">6302777658</p></a><div><p className="font-mono text-[10px] uppercase tracking-widest text-muted-foreground">Professional profile</p><p className="mt-2 inline-flex items-center gap-2 text-sm font-semibold text-foreground"><Linkedin size={16} className="text-primary" /> LinkedIn</p></div></div></div></div></section>
+        <section id="contact" className="section-rule bg-background py-24 sm:py-32"><div className="mx-auto max-w-7xl px-5 sm:px-8"><div className="glass overflow-hidden rounded-[2rem] p-7 sm:p-12 lg:p-16"><div className="grid gap-12 lg:grid-cols-[1fr_auto] lg:items-end"><div><p className="font-mono text-xs uppercase tracking-[0.2em] text-primary">07 / CONTACT</p><h2 className="mt-5 max-w-2xl text-4xl font-extrabold tracking-tight text-foreground sm:text-6xl">Let&apos;s turn data into meaningful insights.</h2><p className="mt-6 max-w-xl text-lg leading-8 text-muted-foreground">Reach out to Galla Mahendra for a conversation about data, dashboards, and intelligent solutions.</p></div><a href="mailto:mahendramahe689@gmail.com" className="inline-flex items-center justify-center gap-2 rounded-xl bg-primary px-6 py-4 text-sm font-bold text-primary-foreground transition-transform hover:-translate-y-0.5">Email Me <ArrowUpRight size={17} /></a></div><div className="mt-12 grid gap-4 border-t border-border pt-8 sm:grid-cols-3"><a href="mailto:mahendramahe689@gmail.com" className="group"><p className="font-mono text-[10px] uppercase tracking-widest text-muted-foreground">Email</p><p className="mt-2 break-all text-sm font-semibold text-foreground group-hover:text-primary">mahendramahe689@gmail.com</p></a><a href="tel:+916302777658" className="group"><p className="font-mono text-[10px] uppercase tracking-widest text-muted-foreground">Phone</p><p className="mt-2 text-sm font-semibold text-foreground group-hover:text-primary">6302777658</p></a><a href={linkedInUrl} target="_blank" rel="noopener noreferrer" className="group"><p className="font-mono text-[10px] uppercase tracking-widest text-muted-foreground">Professional profile</p><p className="mt-2 inline-flex items-center gap-2 text-sm font-semibold text-foreground group-hover:text-primary"><Linkedin size={16} className="text-primary" /> LinkedIn</p></a></div></div></div></section>
       </main>
 
       <footer className="border-t border-border bg-surface-deep"><div className="mx-auto flex max-w-7xl flex-col gap-4 px-5 py-8 text-xs text-muted-foreground sm:flex-row sm:items-center sm:justify-between sm:px-8"><p className="font-mono uppercase tracking-[0.14em]">Galla Mahendra / Data Analyst</p><a href="#home" className="inline-flex items-center gap-2 hover:text-primary">Back to top <ChevronRight size={14} className="-rotate-90" /></a></div></footer>
