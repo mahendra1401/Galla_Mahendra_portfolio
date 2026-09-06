@@ -27,6 +27,8 @@ import {
 import portraitAsset from "@/assets/mahendra-portrait.jpeg.asset.json";
 import resumeAsset from "@/assets/galla-mahendra-resume.pdf.asset.json";
 
+const linkedInUrl = "https://www.linkedin.com/in/galla-mahendra-240997298/?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3B2B1eKt11Sg%2BlkOSzjr6fcw%3D%3D";
+
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
