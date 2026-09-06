@@ -2,6 +2,6 @@
 - [x] Add supplied portrait and original resume download
 - [x] Add COVID-19 Data Analysis and gesture-control projects from uploaded materials
 - [x] Include Python explicitly in Programming skills
-- [ ] Replace hero portrait with PICC.jpeg
-- [ ] Make LinkedIn link clickable with provided URL
-- [ ] Validate desktop/mobile preview, interactions, and build diagnostics
+- [x] Replace hero portrait with PICC.jpeg
+- [x] Make LinkedIn link clickable with provided URL
+- [x] Validate desktop/mobile preview, interactions, and build diagnostics
