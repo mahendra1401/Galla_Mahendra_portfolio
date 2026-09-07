@@ -5,3 +5,5 @@
 - [x] Replace hero portrait with PICC.jpeg
 - [x] Make LinkedIn link clickable with provided URL
 - [x] Validate desktop/mobile preview, interactions, and build diagnostics
+- [x] Elaborate every section to attract hiring managers
+- [x] Reposition portfolio as Data Analyst + Software Engineering (SQL/Python)
